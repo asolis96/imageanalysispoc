@@ -18,7 +18,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    env:
+      ENV: dev
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17
@@ -27,7 +28,9 @@ jobs:
         java-version: '17'
         distribution: 'adopt'
         cache: maven
-    - name: Build with Maven
+    - name: compile with Maven
+      run: mvn compile
+    - name: run test with Maven
       run: mvn test
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
