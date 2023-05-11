@@ -55,11 +55,13 @@ public class GoogleActions {
 
     private void Im_InTheHomePage() {
         driver.get("https://www.google.com/");
+        System.out.println("\n\n\n\n\nGoing to google");
     }
 
     private void Search_For(String wwe) {
         searchBar.sendKeys(wwe);
         wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
+        System.out.println("Searching for WWE");
     }
 
     private void Validate_Results() {
