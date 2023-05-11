@@ -32,6 +32,8 @@ public class GoogleActions {
         ChromeOptions options = new ChromeOptions();
         options.setHeadless(true);
         options.addArguments("--remote-allow-origins=*");
+        options.addArguments("window-size=1920,1200");
+        System.setProperty("webdriver.chrome.whitelistedIps", "");
 
         driver = new ChromeDriver(options);
 
