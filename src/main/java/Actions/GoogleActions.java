@@ -30,7 +30,7 @@ public class GoogleActions {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
-        options.setHeadless(false);
+        options.setHeadless(true);
         options.addArguments("--remote-allow-origins=*");
 
         driver = new ChromeDriver(options);
