@@ -33,4 +33,9 @@ jobs:
     - name: run test with Maven
       run: mvn clean test verify
       
+    - name: Deploy pages
+      uses: JamesIves/github-pages-deploy-action@4.1.5
+      with:
+        branch: main
+        folder: ./Reports
 
