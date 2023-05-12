@@ -58,10 +58,5 @@ jobs:
       number-of-test-error-to-fail-job: # optional, default is -1
       # the name of the check
       name: # optional, default is Cucumber report
-      
-    - name: Deploy pages
-      uses: JamesIves/github-pages-deploy-action@releases/v4-folder-perms
-      with:
-        branch: gh-pages
-        folder: ./Reports
+  
 
