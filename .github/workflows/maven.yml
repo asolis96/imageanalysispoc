@@ -23,7 +23,9 @@ jobs:
       - name: run test with Maven
         run: mvn clean test verify
       - name: Cucumber Report to Annotations
-    uses: deblockt/cucumber-report-annotations-action@v1.11
-    with:
-      access-token: ${{ secrets.BUILD_KEY}}
-      path: ./Reports/CalanticJSonReport.json
+        uses: deblockt/cucumber-report-annotations-action@v1.11
+        with:
+          access-token: ${{ secrets.BUILD_KEY}}
+          path: ./Reports/CalanticJSonReport.json
+
+      
