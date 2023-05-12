@@ -22,6 +22,13 @@ jobs:
           cache: maven
       - name: run test with Maven
         run: mvn clean test verify
+        
+      - name:  Upload Report
+        uses: actions/upload-arttifact@v2
+        with:
+          name: Reports
+          path: ./Reports
+        
       - name: Cucumber Report to Annotations
         uses: deblockt/cucumber-report-annotations-action@v1.11
         with:
