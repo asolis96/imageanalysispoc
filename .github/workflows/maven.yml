@@ -1,41 +1,38 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
+---
 name: Java CI with Maven
-
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
-
+    branches:
+      - main
 jobs:
   build:
-
     runs-on: ubuntu-latest
     env:
       ENV: dev
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK 17
-      uses: actions/setup-java@v3
-      with:
-        java-version: '17'
-        distribution: 'adopt'
-        cache: maven
-    - name: compile with Maven
-      run: mvn compile
-    - name: run test with Maven
-      run: mvn clean test verify
-      
-    - name: Deploy pages
-      uses: JamesIves/github-pages-deploy-action@releases/v4-folder-perms
-      with:
-        branch: main
-        folder: ./Reports
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: "17"
+          distribution: adopt
+          cache: maven
+      - name: run test with Maven
+        run: mvn clean test verify
+        
+      - name:  Upload Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: Reports
+          path: ./Reports
+        
+      - name: Cucumber Report to Annotations
+        uses: deblockt/cucumber-report-annotations-action@v1.11
+        with:
+          access-token: ${{ secrets.BUILD_KEY2}}
+          path: ./Reports/CalanticJSonReport.json
 
+      
