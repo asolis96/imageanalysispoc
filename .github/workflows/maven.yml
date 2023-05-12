@@ -24,7 +24,7 @@ jobs:
         run: mvn clean test verify
         
       - name:  Upload Report
-        uses: actions/upload-arttifact@v2
+        uses: actions/upload-artifact@v2
         with:
           name: Reports
           path: ./Reports
