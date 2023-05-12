@@ -39,7 +39,7 @@ jobs:
       # github token
       access-token: 
       # glob to cucumber json files
-      path: **/CalanticJSonReport.json 
+      path: ./Reports/CalanticJSonReport.json 
       # the check status to use on cucumber error. Can be 'success', 'neutral' or 'failure'
       check-status-on-error: # default is failure
       # the check status to use on cucumber undefined steps. Can be 'success', 'neutral' or 'failure'
