@@ -25,7 +25,7 @@ jobs:
       - name: Cucumber Report to Annotations
         uses: deblockt/cucumber-report-annotations-action@v1.11
         with:
-          access-token: ${{ secrets.BUILD_KEY2}}
+          access-token: ${{ secrets.BUILD_KEY3}}
           path: ./Reports/CalanticJSonReport.json
 
       
