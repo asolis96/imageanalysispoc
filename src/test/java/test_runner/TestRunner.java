@@ -14,7 +14,8 @@ import org.junit.runner.RunWith;
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
                 "json:Reports/CalanticJSonReport.json",
                 "html:Reports/Cucumber.html",
-                "rerun:target/rerun.txt"
+                "rerun:target/rerun.txt",
+                "junit:Reports/Cucumber-results.xml"
         }
 )
 
