@@ -1,62 +1,29 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
+---
 name: Java CI with Maven
-
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
-
+    branches:
+      - main
 jobs:
   build:
-
     runs-on: ubuntu-latest
     env:
       ENV: dev
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK 17
-      uses: actions/setup-java@v3
-      with:
-        java-version: '17'
-        distribution: 'adopt'
-        cache: maven
-    - name: run test with Maven
-      run: mvn clean test verify
-      
-    - name: Cucumber Report to Annotations
-    # You may pin to the exact commit or the version.
-    # uses: deblockt/cucumber-report-annotations-action@d45e6032f27de46edb8c8f771dc5994ff323d1b0
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: "17"
+          distribution: adopt
+          cache: maven
+      - name: run test with Maven
+        run: mvn clean test verify
+      - name: Cucumber Report to Annotations
     uses: deblockt/cucumber-report-annotations-action@v1.11
     with:
-      # github token
-      access-token: 
-      # glob to cucumber json files
-      path: ./Reports/CalanticJSonReport.json 
-      # the check status to use on cucumber error. Can be 'success', 'neutral' or 'failure'
-      check-status-on-error: # default is failure
-      # the check status to use on cucumber undefined steps. Can be 'success', 'neutral' or 'failure'
-      check-status-on-undefined: # default is success
-      # the check status to use on cucumber pending steps. Can be 'success', 'neutral' or 'failure'
-      check-status-on-pending: # default is success
-      # the annotation status on error. Can be 'notice', 'warning', 'failure'
-      annotation-status-on-error: # optional, default is failure
-      # the annotation status on undefined steps. Can be 'notice', 'warning', 'failure'. if this property is not set, no annotation will be generated for undefined steps
-      annotation-status-on-undefined: # optional
-      # the annotation status on pending steps. Can be 'notice', 'warning', 'failure'. if this property is not set, no annotation will be generated for pending steps
-      annotation-status-on-pending: # optional
-      # if it is set to true, the number of errors will be indicated on the check title (visible on the pr check)
-      show-number-of-error-on-check-title: # optional, default is true
-      # indicate the number of test in error to fail the build. If the value is -1 this action will never fail the build.
-      number-of-test-error-to-fail-job: # optional, default is -1
-      # the name of the check
-      name: # optional, default is Cucumber report
-  
-
+      access-token: ${{ secrets.BUILD_KEY}}
+      path: ./Reports/CalanticJSonReport.json
