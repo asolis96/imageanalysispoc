@@ -21,7 +21,7 @@ jobs:
           distribution: adopt
           cache: maven
       - name: run test with Maven
-        run: mvn clean test verify
+        run: mvn -e -X clean test verify
         
       - name:  Upload Report
         uses: actions/upload-artifact@v3
