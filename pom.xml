@@ -41,7 +41,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>${project.name}</projectName>
+                            <projectName>GyosMasterReport</projectName>
                             <outputDirectory>/Reports</outputDirectory>
                             <buildNumber>4</buildNumber>
                         </configuration>
