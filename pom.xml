@@ -36,14 +36,17 @@
                 <executions>
                     <execution>
                         <id>execution</id>
-                        <phase>verify</phase>
+                        <phase>test</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>${project.name}</projectName>
-                            <outputDirectory>/Reports</outputDirectory>
-                            <buildNumber>4</buildNumber>
+                            <projectName>Gyos Master Reports</projectName>
+                            <outputDirectory>Reports/</outputDirectory>
+                            <inputDirectory>Reports/</inputDirectory>
+                            <jsonFiles>
+                                <param>**/*.json</param>
+                            </jsonFiles>
                         </configuration>
                     </execution>
                 </executions>
@@ -54,6 +57,7 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <maven.cucumber.reporting.versions>5.7.5</maven.cucumber.reporting.versions>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
