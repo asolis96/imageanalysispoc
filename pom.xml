@@ -42,8 +42,11 @@
                         </goals>
                         <configuration>
                             <projectName>Gyos Master Reports</projectName>
-                            <outputDirectory>Reports/Cucumber.html</outputDirectory>
-                            <inputDirectory>Reports/cucumber.json</inputDirectory>
+                            <outputDirectory>${project.build.directory}/surefire-reports/</outputDirectory>
+                            <inputDirectory>Reports/</inputDirectory>
+                            <jsonFiles>
+                                <param>**/*.json</param>
+                            </jsonFiles>
                         </configuration>
                     </execution>
                 </executions>
