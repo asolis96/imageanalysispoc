@@ -36,17 +36,14 @@
                 <executions>
                     <execution>
                         <id>execution</id>
-                        <phase>test</phase>
+                        <phase>verify</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
                             <projectName>Gyos Master Reports</projectName>
-                            <outputDirectory>Reports/</outputDirectory>
-                            <inputDirectory>Reports/</inputDirectory>
-                            <jsonFiles>
-                                <param>**/*.json</param>
-                            </jsonFiles>
+                            <outputDirectory>Reports/Cucumber.html</outputDirectory>
+                            <inputDirectory>Reports/cucumber.json</inputDirectory>
                         </configuration>
                     </execution>
                 </executions>
@@ -118,7 +115,13 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.22</version>
+            <version>1.18.26</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
+        <dependency>
+            <groupId>net.masterthought</groupId>
+            <artifactId>cucumber-reporting</artifactId>
+            <version>5.7.5</version>
         </dependency>
 
     </dependencies>
