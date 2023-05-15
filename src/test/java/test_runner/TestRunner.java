@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         monochrome = true,
         plugin = {
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-                "json:Reports/CalanticJSonReport.json",
+                "json:Reports/cucumber.json",
                 "html:Reports/Cucumber.html",
                 "rerun:target/rerun.txt",
                 "junit:Reports/Cucumber-results.xml"
