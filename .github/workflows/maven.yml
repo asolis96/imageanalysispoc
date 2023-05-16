@@ -33,6 +33,6 @@ jobs:
         uses: deblockt/cucumber-report-annotations-action@v1.11
         with:
           access-token: ${{ secrets.BUILD_KEY2}}
-          path: Reports/CalanticJSonReport.json
+          path: Reports/cucumber.json
 
-      
+
