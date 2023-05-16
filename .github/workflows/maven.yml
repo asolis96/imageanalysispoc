@@ -32,7 +32,7 @@ jobs:
           path: ./Reports
           
       - name: Deploy pages
-        uses: JamesIves/github-pages-deploy-action@releases/v4-folder-perms
+        uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
           branch: gh-pages
           folder: Reports/
