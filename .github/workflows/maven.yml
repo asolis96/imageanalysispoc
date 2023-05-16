@@ -2,7 +2,7 @@
 name: Java CI with Maven
 on:
   schedule:
-    - cron: 15 14 * * *
+    - cron: 0 0 * * *
   push:
     branches:
       - main
@@ -30,6 +30,12 @@ jobs:
         with:
           name: Reports
           path: ./Reports
+          
+      - name: Deploy pages
+        uses: JamesIves/github-pages-deploy-action@releases/v4-folder-perms
+        with:
+          branch: gh-pages
+          folder: Reports/
         
       - name: Cucumber Report to Annotations
         uses: deblockt/cucumber-report-annotations-action@v1.11
