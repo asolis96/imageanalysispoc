@@ -1,6 +1,8 @@
 ---
 name: Java CI with Maven
 on:
+  schedule:
+    - cron: 15 14 * * *
   push:
     branches:
       - main
