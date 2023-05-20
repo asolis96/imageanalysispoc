@@ -23,27 +23,27 @@ jobs:
           distribution: adopt
           cache: maven
       - name: run test with Maven
-        run: mvn -e -X clean test verify
+        run: mvn clean test -Dsurefire.suiteXmlFiles=src/test/java/testng.xml
         
       - name:  Upload Report
         uses: actions/upload-artifact@v3
         with:
           name: Reports
-          path: ./Reports
+          path: target/surefire-reports
           
       - name: Deploy pages
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
           branch: gh-pages
-          folder: Reports/
-          
+          folder: target/surefire-reports
+    
       - name: Test Report
         uses: dorny/test-reporter@v1
         if: success() || failure()    # run this step even if previous step failed
         with:
           name: JEST Tests            # Name of the check run which will be created
-          path: Reports/*.xml    # Path to test results
-          reporter: jest-junit
+          path: target/surefire-reports/*.xml    # Path to test results
+          reporter: jest-juni
         
       # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
       - name: Update dependency graph
