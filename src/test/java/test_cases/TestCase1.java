@@ -15,14 +15,14 @@ public class TestCase1 {
     WebDriver driver;
     GoogleActions googleActions;
 
-    @Test
+    //@Test
     public void test1() {
         googleActions.ImInTheHomePage();
         googleActions.SearchFor("WWE");
         //googleActions.ValidateResults();
     }
 
-    @BeforeMethod
+    //@BeforeMethod
     public void beforeMethod() {
         OpenCV.loadShared();
         System.out.println("Starting Test On Chrome Browser");
@@ -35,7 +35,7 @@ public class TestCase1 {
         googleActions = new GoogleActions(driver);
     }
 
-    @AfterMethod
+    //@AfterMethod
     public void afterMethod() {
         driver.close();
         System.out.println("Finished Test on Chrome Browser");

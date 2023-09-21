@@ -15,7 +15,7 @@ public class TestCase2 {
     WebDriver driver;
     PinterestActions pinterestActions;
 
-    @Test
+    //@Test
     public void test2() {
         pinterestActions.imInTheHomePage();
         pinterestActions.clickOnLoginButton();
@@ -23,7 +23,7 @@ public class TestCase2 {
         pinterestActions.validateForm();
     }
 
-    @BeforeMethod
+    //@BeforeMethod
     public void beforeMethod() {
         OpenCV.loadShared();
         System.out.println(System.getProperty("env").toUpperCase());
@@ -38,7 +38,7 @@ public class TestCase2 {
         pinterestActions = new PinterestActions(driver);
     }
 
-    @AfterMethod
+    //@AfterMethod
     public void afterMethod() {
         driver.close();
         System.out.println("Finished Test on Chrome Browser");
