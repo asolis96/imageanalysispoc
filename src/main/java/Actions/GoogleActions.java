@@ -33,6 +33,7 @@ public class GoogleActions {
     private List<WebElement> expectedResult;
 
     public GoogleActions() {
+        System.out.println(System.getProperty("env").toUpperCase());
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();

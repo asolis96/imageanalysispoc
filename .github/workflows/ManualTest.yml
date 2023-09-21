@@ -1,5 +1,5 @@
 ---
-name: Viewer Automation Tests
+name: Manual Tests
 on:
   #this allows to run manually
   workflow_dispatch:
