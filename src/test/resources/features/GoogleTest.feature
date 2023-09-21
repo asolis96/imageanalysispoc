@@ -1,3 +1,4 @@
+@Test
 Feature: Google simple test
 
   Scenario: do a google search
