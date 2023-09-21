@@ -28,4 +28,4 @@ jobs:
           version: '>= 363.0.0'
 
       - name: Running test with Maven
-        run: mvn clean test -Denv=$Env
+        run: mvn clean test -Denv=${{ inputs.Env }}
