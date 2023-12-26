@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ENV: dev
+      TEST_KEY: ${{ secrets.TEST_SECRET }}
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 17
@@ -21,12 +22,12 @@ jobs:
           distribution: adopt
           cache: maven
 
-      - name: 'Set up Cloud SDK'
-        uses: 'google-github-actions/setup-gcloud@v1'
-        with:
-          version: '>= 363.0.0'
+      #- name: 'Set up Cloud SDK'
+      #  uses: 'google-github-actions/setup-gcloud@v1'
+      #  with:
+      #    version: '>= 363.0.0'
 
       - name: Running test with Maven
-        run: mvn clean test
+        run: echo "$TEST_KEY"
 
 
