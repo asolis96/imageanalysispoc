@@ -14,6 +14,8 @@ jobs:
     env:
       ENV: dev
       TEST_KEY: ${{ secrets.TEST_SECRET }}
+      GCP_SERVICE_KEY: ${{ secrets.GCP_SERVICE_KEY }}
+      GCP_ACCOUNT: ${{ secrets.GCP_ACCOUNT}}
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 17
@@ -23,12 +25,27 @@ jobs:
           distribution: adopt
           cache: maven
 
-      #- name: 'Set up Cloud SDK'
-      #  uses: 'google-github-actions/setup-gcloud@v1'
-      #  with:
-      #    version: '>= 363.0.0'
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
+        with:
+          version: '>= 363.0.0'
+
+      - name: Create gcp keyfile
+        run: echo "$GCP_SERVICE_KEY" > tempkey.key
+
+      - name: Setting GCP Key
+        run: gcloud auth activate-service-account --key-file "tempkey.key"
+
+      - name: Activate Accounts
+        run: gcloud config set account $GCP_ACCOUNT
+
+      - name: List Accounts
+        run: gcloud auth list
 
       #- name: Running test with Maven
       #  run: mvn clean test -Denv=${{ inputs.Env }}
       - name: Run Manual Test
         run: echo "$TEST_KEY" | sed 's/./& /g'
+
+      - name: Erasing tempkey file
+        run: rm tempkey.key
