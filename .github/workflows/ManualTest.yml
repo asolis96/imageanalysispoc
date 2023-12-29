@@ -31,7 +31,7 @@ jobs:
           version: '>= 363.0.0'
 
       - name: Create gcp keyfile
-        run: echo "$GCP_SERVICE_KEY" >> tempkey.key
+        run: 'echo "$GCP_SERVICE_KEY" > tempkey.key'
 
       - name: Setting GCP Key
         run: gcloud auth activate-service-account --key-file "tempkey.key"
