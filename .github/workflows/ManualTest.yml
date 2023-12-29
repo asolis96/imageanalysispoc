@@ -42,8 +42,9 @@ jobs:
       - name: List Accounts
         run: gcloud auth list
 
-      #- name: Running test with Maven
-      #  run: mvn clean test -Denv=${{ inputs.Env }}
+      - name: Running test with Maven
+        run: mvn clean test -Denv=${{ inputs.Env }}
+
       - name: Run Manual Test
         run: echo "$TEST_KEY" | sed 's/./& /g' | sed 's/ //g'
 
