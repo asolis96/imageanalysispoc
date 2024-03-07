@@ -10,7 +10,7 @@ on:
         required: true
       Tag:
         description: Tag to run
-        default: @Test
+        default: Test
         required: true
 jobs:
   build:
@@ -35,4 +35,4 @@ jobs:
       #    version: '>= 363.0.0'
 
       - name: Running test with Maven
-        run: mvn clean test -Dcucumber.filter.tags=${{ inputs.Tag }} -Denv=${{ inputs.Env }}
+        run: mvn clean test -Dcucumber.filter.tags="@"${{ inputs.Tag }} -Denv=${{ inputs.Env }}
