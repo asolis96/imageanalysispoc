@@ -30,7 +30,7 @@ public class TestCase2 {
         System.out.println("Starting Test On Chrome Browser");
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        options.setHeadless(true); //value true only to run on server
+        options.addArguments("--headless=new"); //value true only to run on server
         options.addArguments("--remote-allow-origins=*"); //Added to avoid 'org.openqa.selenium.remote.http.ConnectionFailedException: Unable to establish websocket connection to' error
         options.addArguments("window-size=1920,1200");
         System.setProperty("webdriver.chrome.whitelistedIps", "");
