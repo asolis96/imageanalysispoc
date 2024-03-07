@@ -38,7 +38,7 @@ public class GoogleActions {
 
         ChromeOptions options = new ChromeOptions();
         System.out.println(System.getProperty("env").toUpperCase());
-        options.setHeadless(true);
+        options.addArguments("--headless=new");
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("window-size=1920,1200");
         System.setProperty("webdriver.chrome.whitelistedIps", "");
@@ -77,7 +77,7 @@ public class GoogleActions {
         searchBar.sendKeys(wwe);
         takeScreenshotAndSaveIt(searchBar, "image2");
         wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
-        System.out.println("Searching for WWE");
+        System.out.println("Searching for " + wwe);
     }
 
     private void Validate_Results() {

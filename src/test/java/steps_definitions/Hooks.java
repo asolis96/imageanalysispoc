@@ -10,13 +10,14 @@ public class Hooks {
 
     @BeforeAll
     public static void beforeAll() {
-        try {
-            System.out.println(getSecretValue());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        System.out.println("before all");
+        //try {
+           // System.out.println(getSecretValue());
+        //} catch (IOException e) {
+        //    throw new RuntimeException(e);
+        //} catch (InterruptedException e) {
+        //    throw new RuntimeException(e);
+        //}
     }
 
     public static String getSecretValue() throws IOException, InterruptedException {
